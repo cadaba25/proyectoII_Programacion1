@@ -21,17 +21,11 @@ public class VerPerfil extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         String username = Users.getNombrevisita();
-        Tweets[] tweet = Tweets.obtenerTweetsDeUnUsuario(username);
+        String[] tweet = Tweets.obtenerTweetsDeUnUsuario(username);
+
         
-        String[] tweetsArray = new String [tweet.length];
-        for (int i = 0; i < tweet.length; i++) {
-            tweetsArray[i] = tweet[i].stringtweets();
-            
-            
-        }
-        
-        ListaTweetsUsuario.setListData(tweetsArray);
-        ListaTweetsUsuario.repaint();
+        ListaTweetsUsuario.setListData(tweet);
+        //ListaTweetsUsuario.repaint();
         
         
     }
@@ -178,6 +172,8 @@ public class VerPerfil extends javax.swing.JFrame {
         BuscarPersonas bp=new BuscarPersonas();
         bp.setVisible(true);
         this.dispose();
+        ListaTweetsUsuario.repaint();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

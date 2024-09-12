@@ -4,8 +4,9 @@
  */
 package proyectoredsocial;
 
+import Calendar.DateCalendar;
+import static java.util.Calendar.DATE;
 import java.util.Date;
-import static proyectoredsocial.Date.DATEe;
 /**
  *
  * @author ernes
@@ -15,6 +16,7 @@ public class Tweets {
     public static Tweets tweets[]=new Tweets[300];
     String username, tweet;
     Date fecha=new Date();
+    
     
     public Tweets(){
     } 
@@ -41,7 +43,7 @@ public class Tweets {
     }
     
     public String stringtweets() {
-    String twit= username + ": " + tweet + " (" + fecha + ")";
+    String twit= username + ": " + tweet + " (" + fechaa.getFecha() + ")";
     return twit;
     }
     
@@ -72,7 +74,7 @@ public class Tweets {
         return tweetsFiltrados;
     }
     
-    public static Tweets[] obtenerTweetsDeUnUsuario(String username) {
+    public static String[] obtenerTweetsDeUnUsuario(String username) {
         int contador = 0;
     
         for(Tweets t : tweets){
@@ -81,12 +83,12 @@ public class Tweets {
             }
         }
         
-        Tweets[] tweetFiltrados= new Tweets[contador];
+        String[] tweetFiltrados= new String[contador];
         int indice = 0;
         
         for(Tweets t: tweets){
             if(t != null && t.username.equals(username)){
-                tweetFiltrados[indice++] = t;
+                tweetFiltrados[indice++] = t.stringtweets();
             }
         }
         
